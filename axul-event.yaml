@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axul-event-api
+  labels:
+    app: axul-event
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: axul-event
+  template:
+    metadata:
+      labels:
+        app: axul-event
+    spec:
+      containers:
+      - name: axul-event
+        image: ncostamagna/axul_event:v1.0.0
+        imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: axul-event-api
+  labels:
+    app: axul-event
+    env: dev
+spec:
+  type: NodePort
+  selector:
+    app: axul-event
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8081
+      targetPort: 8081
