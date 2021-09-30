@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name}}-{{.Values.event.name}}-api
+  labels:
+    app: {{.Values.event.name}}
+    env: dev
+    project: axul
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.event.name}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.event.name}}
+    spec:
+      containers:
+      - name: {{.Values.event.name}}
+        image: {{.Values.event.image.url}}:{{.Values.event.image.version}}
+        imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name}}-{{.Values.event.name}}-api
+  labels:
+    app: {{.Values.event.name}}
+    env: dev
+    project: axul
+spec:
+  type: NodePort
+  selector:
+    app: {{.Values.event.name}}
+  ports:
+    - name: http
+      protocol: TCP
+      port: {{.Values.event.port.http}}
+      targetPort: {{.Values.event.port.http}}
