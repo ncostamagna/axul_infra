@@ -1,2 +1,11 @@
 .env
 axul.pem
+access
+access.md
+axul.pem.*
+tf/env.tfvars
+tf/.terraform
+tf/terraform.tfstate
+tf/terraform.tfstate.backup
+tf/.terraform.lock.hcl
+terraform.tfstate

@@ -48,3 +48,25 @@ kubectl apply -f axul-user.yaml
 
 kubectl get all
 ```
+
+# Helm
+```sh
+curl -LO https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
+tar -xzf helm-v3.7.0-linux-amd64.tar.gz
+cd linux-amd64 # El nombre del folder que descomprimio
+sudo cp helm /usr/local/bin
+
+helm version
+```
+
+# Terraform
+
+tf/env.tfvars
+```go
+access_key = ""
+secret_key = ""
+```
+
+```sh
+terraform apply -var-file="env.tfvars" 
+```
