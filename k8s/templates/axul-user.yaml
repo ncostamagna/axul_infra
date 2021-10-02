@@ -19,7 +19,7 @@ spec:
       containers:
       - name: {{.Values.user.name}}
         image: {{.Values.user.image.url}}:{{.Values.user.image.version}}
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
