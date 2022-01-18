@@ -1,5 +1,5 @@
 contact:
-  name: axul-contact
+  name: contact
   image:
     url: ncostamagna/axul_contact
     version: v1.0.0
@@ -8,7 +8,7 @@ contact:
   replicas: 1
 
 event:
-  name: axul-event
+  name: event
   image:
     url: ncostamagna/axul_event
     version: v1.0.0
@@ -17,7 +17,7 @@ event:
   replicas: 1
 
 user:
-  name: axul-user
+  name: user
   image:
     url: ncostamagna/axul_user
     version: v1.0.0
