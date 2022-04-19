@@ -3,7 +3,7 @@ export PATH=$PATH:/usr/local/bin
 #sudo -i
 sudo apt update
 sudo apt install git
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common python3-pip -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update
@@ -40,5 +40,8 @@ tar -xzf helm-v3.7.0-linux-amd64.tar.gz
 cd linux-amd64 # El nombre del folder que descomprimio
 sudo cp helm /usr/local/bin
 
-cd ..
-git clone https://github.com/ncostamagna/axul_infra
+cd ~
+sudo sudo apt-get install git-all
+#git clone https://github.com/ncostamagna/axul_contact.git
+#git clone https://github.com/ncostamagna/axul_user.git
+git clone https://github.com/ncostamagna/procrear-bot.git

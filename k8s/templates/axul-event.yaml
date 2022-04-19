@@ -39,3 +39,4 @@ spec:
       protocol: TCP
       port: {{.Values.event.port.http}}
       targetPort: {{.Values.event.port.http}}
+      nodePort: 30002

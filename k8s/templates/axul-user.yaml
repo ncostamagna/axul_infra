@@ -20,6 +20,8 @@ spec:
       - name: {{.Values.user.name}}
         image: {{.Values.user.image.url}}:{{.Values.user.image.version}}
         imagePullPolicy: Always
+        ports:
+        - containerPort: {{.Values.user.port.http}}
 ---
 apiVersion: v1
 kind: Service
@@ -38,6 +40,7 @@ spec:
       protocol: TCP
       port: {{.Values.user.port.http}}
       targetPort: {{.Values.user.port.http}}
+      nodePort: 30001
     - name: grpc
       protocol: TCP
       port: {{.Values.user.port.grpc}}

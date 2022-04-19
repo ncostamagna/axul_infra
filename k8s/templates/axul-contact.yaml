@@ -38,3 +38,4 @@ spec:
       protocol: TCP
       port: {{.Values.contact.port.http}}
       targetPort: {{.Values.contact.port.http}}
+      nodePort: 30003
