@@ -1,9 +1,9 @@
 
-resource "aws_volume_attachment" "ebs_attach_axul" {
-  device_name = "/dev/sdh"
-  volume_id   = aws_ebs_volume.ebs_volume_axul.id
-  instance_id = aws_instance.ec2_axul.id
-}
+#resource "aws_volume_attachment" "ebs_attach_axul" {
+#  device_name = "/dev/sdh"
+#  volume_id   = aws_ebs_volume.ebs_volume_axul.id
+#  instance_id = aws_instance.ec2_axul.id
+#}
 
 resource "aws_instance" "ec2_axul" {
     ami = "ami-09e67e426f25ce0d7"
@@ -14,7 +14,9 @@ resource "aws_instance" "ec2_axul" {
     key_name = "${aws_key_pair.key-class-1.id}"
 
     #depends_on = ["aws_internet_gateway.gw"]
-
+    root_block_device {
+        volume_size = 30
+    }
     user_data = "${file("userdata.sh")}"
     tags = {
         Name = "Axul API"
@@ -23,7 +25,7 @@ resource "aws_instance" "ec2_axul" {
     }
 }
 
-resource "aws_ebs_volume" "ebs_volume_axul" {
-  availability_zone = "us-east-1d"
-  size              = 20
-}
+#resource "aws_ebs_volume" "ebs_volume_axul" {
+#  availability_zone = "us-east-1d"
+#  size              = 8
+#}

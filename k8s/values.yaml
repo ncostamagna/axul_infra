@@ -2,7 +2,7 @@ contact:
   name: contact
   image:
     url: ncostamagna/axul_contact
-    version: v1.0.0
+    version: v1.0.1
   port:
     http: 8080
   replicas: 1
