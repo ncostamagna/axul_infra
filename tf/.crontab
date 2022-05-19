@@ -1,0 +1,2 @@
+* 0,10,12,16,20,22 * * * python3 /home/ubuntu/procrear-bot/main.py
+* 10 * * * go run /home/ubuntu/axul_events_scheduler/main.go

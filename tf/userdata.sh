@@ -45,3 +45,7 @@ sudo sudo apt-get install git-all
 #git clone https://github.com/ncostamagna/axul_contact.git
 #git clone https://github.com/ncostamagna/axul_user.git
 git clone https://github.com/ncostamagna/procrear-bot.git
+git clone https://github.com/ncostamagna/axul_events_scheduler.git
+
+# Golang
+sudo snap install go --classic
