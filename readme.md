@@ -41,6 +41,7 @@ sudo minikube start --driver=none
 ```sh
 docker push [image]
 ```
+
 # Kubernetes
 
 ```sh
@@ -50,6 +51,7 @@ kubectl get all
 ```
 
 # Helm
+
 ```sh
 curl -LO https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
 tar -xzf helm-v3.7.0-linux-amd64.tar.gz
@@ -62,11 +64,48 @@ helm version
 # Terraform
 
 tf/env.tfvars
+
 ```go
 access_key = ""
 secret_key = ""
 ```
 
 ```sh
-terraform apply -var-file="env.tfvars" 
+terraform apply -var-file="env.tfvars"
+```
+
+# RPi
+
+## Database
+
+```sh
+sudo apt-get update
+sudo apt install mariadb-server
+
+sudo mysql_secure_installation
+
+sudo mysql -u root -p
+
+> CREATE DATABASE axul_user;
+> CREATE DATABASE axul_contact;
+> CREATE DATABASE axul_event;
+> CREATE DATABASE axul_notification;
+
+```
+
+## Go
+
+```sh
+mkdir ~/src && cd ~/src
+wget https://dl.google.com/go/go1.14.4.linux-armv6l.tar.gz
+
+sudo tar -C /usr/local -xzf go1.14.4.linux-armv6l.tar.gz
+rm go1.14.4.linux-arm64.tar.gz
+
+nano ~/.profile
+
+PATH=$PATH:/usr/local/go/bin
+GOPATH=$HOME/go
+
+source ~/.profile
 ```

@@ -6,8 +6,8 @@
 #}
 
 resource "aws_instance" "ec2_axul" {
-    ami = "ami-09e67e426f25ce0d7"
-    instance_type = "t3.small"
+    ami = "ami-052efd3df9dad4825"
+    instance_type = "t2.micro"
     associate_public_ip_address = true
     vpc_security_group_ids = ["${aws_security_group.route_allow_http_ssh.id}"]
     subnet_id = "${var.subnet1}"
