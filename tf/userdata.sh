@@ -39,6 +39,17 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # git
 sudo apt install git
 
+#mysql
+sudo apt-get install mysql-server -y
+
+sudo mysql
+CREATE DATABASE mynewdatabase;
+SHOW DATABASES;
+
+CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypassword';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mypassword';
+
+SELECT user,authentication_string,plugin,host FROM mysql.user;
 
 # Kubectl
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
