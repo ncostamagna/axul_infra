@@ -51,6 +51,20 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mypasswo
 
 SELECT user,authentication_string,plugin,host FROM mysql.user;
 
+# Si tienes problemas para cambiar la contraseña
+SHOW VARIABLES LIKE 'validate_password%';
+SET GLOBAL validate_password.policy = 0;
+SET GLOBAL validate_password.length = 4;
+SET GLOBAL validate_password.check_user_name = 0;
+
+# si no se puede entrar desde la app fijarse que tiene configurado el usuario root
+SELECT host FROM mysql.user WHERE User = 'root';
+# configurarle el host '%'
+CREATE USER 'root'@'%' IDENTIFIED BY 'some_pass';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+
+FLUSH PRIVILEGES;
+
 # Kubectl
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x ./kubectl
