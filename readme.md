@@ -109,3 +109,7 @@ GOPATH=$HOME/go
 
 source ~/.profile
 ```
+
+## Mysql
+
+Instalar y configurar mysql a nivel local
