@@ -43,11 +43,13 @@ sudo apt install git
 sudo apt-get install mysql-server -y
 
 sudo mysql
+mysql -uroot -proot
+
 CREATE DATABASE mynewdatabase;
 SHOW DATABASES;
 
 CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypassword';
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mypassword';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 
 SELECT user,authentication_string,plugin,host FROM mysql.user;
 
@@ -61,9 +63,18 @@ SET GLOBAL validate_password.check_user_name = 0;
 SELECT host FROM mysql.user WHERE User = 'root';
 # configurarle el host '%'
 CREATE USER 'root'@'%' IDENTIFIED BY 'some_pass';
+
+CREATE USER 'root'@'%' IDENTIFIED BY 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 
 FLUSH PRIVILEGES;
+
+# es este archivo hay que reemplazar
+# esto
+# bind-address = 127.0.0.1
+# por esto
+# bind-address = 0.0.0.0
+/etc/mysql/mysql.conf.d
 
 # Kubectl
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
