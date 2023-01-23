@@ -113,3 +113,9 @@ source ~/.profile
 ## Mysql
 
 Instalar y configurar mysql a nivel local
+
+```sh
+# Migrate data in docker
+mysql -u root --host [docker host] --port [docker port] axul_contact > ./contacts.sql -p
+
+```
