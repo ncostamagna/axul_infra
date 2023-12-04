@@ -15,6 +15,9 @@ variable "vpc_cidr" {
   default = "198.168.0.0/16"
 }
 
+variable "ec2_eip" {
+  default = "eipalloc-0cbb61ae7ccd60e7f"
+}
 variable "subnet_cidr" {
   type = list(string)
   default = ["172.31.80.0/24", "172.31.48.0/24"]
